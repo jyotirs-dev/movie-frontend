@@ -1,6 +1,6 @@
 import React from 'react';
 import MovieInfo from './container/MovieInfo/MovieInfo';
-import MovieDetail from './components/MovieDetail/MovieDetail';
+import MovieDetail from './container/MovieDetail/MovieDetail';
 import UserInfo from './container/UserInfo/UserInfo';
 import Layout from './components/Layout/Layout';
 import {
