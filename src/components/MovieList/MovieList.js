@@ -7,23 +7,23 @@ class MovieList extends Component{
     this.state = { apiResponse: [] };
   }
 
-  callAPI() {
-    fetch(process.env.REACT_APP_MOVIELIST)
-      .then(res => res.json())
-      .then(
-      (result) => {
-        this.setState({
-          apiResponse: result
-        })
-      });
-  }
+//   callAPI() {
+//     fetch(process.env.REACT_APP_MOVIELIST)
+//       .then(res => res.json())
+//       .then(
+//       (result) => {
+//         this.setState({
+//           apiResponse: result
+//         })
+//       });
+//   }
 
-  componentDidMount(){
-    this.callAPI();
-  }
+//   componentDidMount(){
+//     this.callAPI();
+//   }
 
   render(){
-    let movieList = this.state.apiResponse.map(movie=> <li key={movie.id}>{movie.title}</li>)
+    let movieList = this.props.movieList.map(movie=> <li key={movie.id}>{movie.title}</li>)
     return (
       <div className="App">
         <ul>

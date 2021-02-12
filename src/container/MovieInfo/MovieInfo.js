@@ -6,23 +6,47 @@ class MovieInfo extends Component{
   
   constructor(props) {
     super(props);
-    this.state = { apiResponse: [] };
+    this.state = { 
+      movieList: [], 
+      activeGenre: "allmovies",
+      genreList:[]
+    };
+  }
+  onSelectGenre = (val)=>{
+    this.setState({
+      activeGenre: val
+    })
+  }
+  callMovieList() {
+    fetch(process.env.REACT_APP_MOVIELIST+this.state.activeGenre)
+      .then(res => res.json())
+      .then(
+      (result) => {
+        this.setState({
+          movieList: result
+        })
+      });
   }
 
-  // callAPI() {
-  //   fetch(process.env.REACT_APP_MOVIELIST)
-  //     .then(res => res.json())
-  //     .then(
-  //     (result) => {
-  //       this.setState({
-  //         apiResponse: result
-  //       })
-  //     });
-  // }
+  callGenreList() {
+    fetch(process.env.REACT_APP_GENRELIST)
+      .then(res => res.json())
+      .then(
+      (result) => {
+        this.setState({
+          genreList: result
+        })
+      });
+  }
 
-  // componentDidMount(){
-  //   this.callAPI();
-  // }
+  componentDidMount(){
+    this.callGenreList();
+    this.callMovieList();
+  }
+
+  componentDidUpdate(){
+    this.callMovieList();
+  }
 
   render(){
     // let movieList = this.state.apiResponse.map(movie=> <ul>{movie.title}</ul>)
@@ -30,10 +54,10 @@ class MovieInfo extends Component{
      
       <div>
         <div style={{width:"20%",float:'left'}}>
-          <GenreList/>
+          <GenreList genreList={this.state.genreList} onSelectGenre={this.onSelectGenre}/>
         </div>
         <div style={{width:"80%", float:'right'}}>
-          <MovieList/>
+          <MovieList movieList={this.state.movieList}/>
         </div>
       </div>
     

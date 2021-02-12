@@ -4,31 +4,17 @@ class GenreList extends Component{
   
   constructor(props) {
     super(props);
-    this.state = { genreList: [] };
   }
-
-  callAPI() {
-    fetch(process.env.REACT_APP_GENRELIST)
-      .then(res => res.json())
-      .then(
-      (result) => {
-          console.log(result)
-        this.setState({
-            genreList: result
-        })
-      });
+  handleChange(val){
+      this.props.onSelectGenre(val);
   }
-
-  componentDidMount(){
-    this.callAPI();
-  }
-
   render(){
-    let genreList = this.state.genreList.map((genre,idx)=> <li key={idx}>{genre}</li>)
+    let genreList = this.props.genreList.map((genre,idx)=> <li key={idx} onClick={()=>this.handleChange(genre)}>{genre}</li>)
     return (
       <div className="App">
         <ul>
         {genreList}
+        <li onClick={()=>this.handleChange("allmovies")}>Reset</li>
         </ul>
       </div>
     );

@@ -15,9 +15,9 @@ function App(props) {
       <Layout>
         <Switch>
         <Route exact path="/">
-          <Redirect to="/my-app" />
+          <Redirect to="/my-app/moviesinfo" />
         </Route>
-        <Route path="/my-app" exact component={MovieInfo} />
+        <Route path="/my-app/moviesinfo" exact component={MovieInfo} />
         </Switch>
         
       </Layout>
