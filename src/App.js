@@ -1,38 +1,29 @@
-import React, {Component} from 'react';
+import React from 'react';
+import MovieInfo from './container/MovieInfo/MovieInfo';
+import UserInfo from './container/UserInfo/UserInfo';
+import Layout from './components/Layout/Layout';
+import {
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
 import './App.css';
 
-class App extends Component{
-  
-  constructor(props) {
-    super(props);
-    this.state = { apiResponse: [] };
-  }
-
-  callAPI() {
-    fetch("http://localhost:9000/api/moviesdata")
-      .then(res => res.json())
-      .then(
-      (result) => {
-        this.setState({
-          apiResponse: result
-        })
-      });
-  }
-
-  componentDidMount(){
-    this.callAPI();
-  }
-
-  render(){
-    let movieList = this.state.apiResponse.map(movie=> <ul>{movie.title}</ul>)
-    return (
-      <div className="App">
-        <li>
-        {movieList}
-        </li>
-      </div>
-    );
-  }
+function App(props) {
+  return (
+    <div >
+      <Layout>
+        <Switch>
+        <Route exact path="/">
+          <Redirect to="/my-app" />
+        </Route>
+        <Route path="/my-app" exact component={MovieInfo} />
+        </Switch>
+        
+      </Layout>
+     
+    </div>
+  );
 }
 
 export default App;
