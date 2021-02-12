@@ -10,7 +10,7 @@ const logo = (props)=>(
         </div>
 
         <div className={classes.LogoChild}>
-            <Link to="/">Movie Zone</Link>
+            <Link to="/my-app/moviesinfo">Movie Zone</Link>
         </div>
     </div>
 );

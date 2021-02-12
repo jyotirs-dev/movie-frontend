@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 class MovieList extends Component{
   
@@ -23,7 +24,7 @@ class MovieList extends Component{
 //   }
 
   render(){
-    let movieList = this.props.movieList.map(movie=> <li key={movie.id}>{movie.title}</li>)
+    let movieList = this.props.movieList.map(movie=> <li key={movie.id}><Link to={`moviesinfo/${movie.id}`}>{movie.title}</Link></li>)
     return (
       <div className="App">
         <ul>
