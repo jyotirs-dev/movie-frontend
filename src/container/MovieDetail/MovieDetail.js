@@ -22,6 +22,10 @@ class MovieDetail extends Component{
       });
   }
 
+  handleEdit = ()=>{
+    this.props.history.push(this.props.match.params.movieid+"/edit");
+  }
+
   componentDidMount(){
     this.callAPI();
   }
@@ -49,6 +53,7 @@ class MovieDetail extends Component{
     return (
       <div className="App">
         {movieSummary}
+        <button onClick={this.handleEdit}>EDIT</button>
       </div>
     );
   }

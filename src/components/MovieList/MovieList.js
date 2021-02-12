@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 
 class MovieList extends Component{
   
@@ -22,9 +21,12 @@ class MovieList extends Component{
 //   componentDidMount(){
 //     this.callAPI();
 //   }
+  handleSelect = (id)=>{
+  this.props.history.push("moviesinfo/"+id);
+  }
 
   render(){
-    let movieList = this.props.movieList.map(movie=> <li key={movie.id}><Link to={`moviesinfo/${movie.id}`}>{movie.title}</Link></li>)
+    let movieList = this.props.movieList.map(movie=> <li key={movie.id} onClick={()=>this.handleSelect(movie.id)}>{movie.title}</li>)
     return (
       <div className="App">
         <ul>

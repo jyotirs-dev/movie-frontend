@@ -57,7 +57,7 @@ class MovieInfo extends Component{
           <GenreList genreList={this.state.genreList} onSelectGenre={this.onSelectGenre}/>
         </div>
         <div style={{width:"80%", float:'right'}}>
-          <MovieList movieList={this.state.movieList}/>
+          <MovieList movieList={this.state.movieList} history={this.props.history}/>
         </div>
       </div>
     
