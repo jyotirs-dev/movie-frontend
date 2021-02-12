@@ -20,7 +20,25 @@ class MovieEdit extends Component {
         })
       });
   }
-
+  handleArr = (evt,idx)=>{
+    let newState = {...this.state.apiResponse}
+    let newactors = newState[evt.target.name].map((actor,_idx)=>{
+      if (_idx !== idx) return actor;
+    // this is gonna create a new object, that has the fields from
+    // `s`, and `name` set to `newName`
+    return evt.target.value;
+    })
+    console.log(newactors);
+    this.setState(prevState =>{
+      return{
+           ...prevState,
+           apiResponse: {
+             ...prevState.apiResponse,
+            [evt.target.name]:newactors
+            },
+      }
+   })
+  }
   handleChange = (event)=>{
     this.setState(prevState =>{
       return{
@@ -83,7 +101,10 @@ class MovieEdit extends Component {
         </label>
         <label>
           Release Date:
-          <input type="text" name="releaseDate" defaultValue={this.state.apiResponse.releaseDate} onChange={this.handleChange} />
+          {this.state.loading?this.state.apiResponse.actors.map((actor,idx)=>
+            <input type="text" name="actors" defaultValue={this.state.apiResponse.actors[idx]} onChange={(evt)=>this.handleArr(evt,idx)} />
+            ):null}
+          
         </label>
         <input type="submit" value="Submit" />
       </form>

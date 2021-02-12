@@ -46,7 +46,7 @@ class MovieDetail extends Component{
         movieSummary = <ul>
         <li ><span style={{textTransform:'capitalize'}}>Name</span> : {movieobj.title}</li>
         <li ><span style={{textTransform:'capitalize'}}>Year</span> : {movieobj.year}</li>
-        <li ><span style={{textTransform:'capitalize'}}>Release Date</span> : {movieobj.releaseDate}</li>
+        <li ><span style={{textTransform:'capitalize'}}>Actors</span> : {movieobj.actors.map(actor => <h1>{actor}</h1>)}</li>
         </ul>
     }
     
