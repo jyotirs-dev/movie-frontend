@@ -16,9 +16,20 @@ class MovieInfo extends Component{
     this.setState({
       activeGenre: val
     })
+    // this.callMovieList();
   }
+  
+  fetch_retry = async (url, n) => {
+    try {
+        return await fetch(url)
+    } catch(err) {
+        if (n === 1) throw err;
+        return await this.fetch_retry(url, n - 1);
+    }
+  }
+
   callMovieList() {
-    fetch(process.env.REACT_APP_MOVIELIST+this.state.activeGenre)
+    this.fetch_retry(process.env.REACT_APP_MOVIELIST+this.state.activeGenre,2)
       .then(res => res.json())
       .then(
       (result) => {
@@ -29,7 +40,7 @@ class MovieInfo extends Component{
   }
 
   callGenreList() {
-    fetch(process.env.REACT_APP_GENRELIST)
+    this.fetch_retry(process.env.REACT_APP_GENRELIST,2)
       .then(res => res.json())
       .then(
       (result) => {
@@ -44,8 +55,11 @@ class MovieInfo extends Component{
     this.callMovieList();
   }
 
-  componentDidUpdate(){
-    this.callMovieList();
+  componentDidUpdate(prevProps, prevState){
+    if (prevState.activeGenre !== this.state.activeGenre) {
+      this.callMovieList();
+    }
+    
   }
 
   render(){

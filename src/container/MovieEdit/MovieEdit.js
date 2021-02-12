@@ -5,9 +5,6 @@ class MovieEdit extends Component {
     super(props);
     this.state = { 
         apiResponse: [],
-        title:"",
-        year:"",
-        releaseDate:"",
         loading: false 
     };
   }
