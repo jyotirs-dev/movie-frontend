@@ -42,7 +42,7 @@ class MovieDetail extends Component{
     //     )
     // }
     if(this.state.loading){
-        var movieobj = this.state.apiResponse[0];
+        var movieobj = this.state.apiResponse;
         movieSummary = <ul>
         <li ><span style={{textTransform:'capitalize'}}>Name</span> : {movieobj.title}</li>
         <li ><span style={{textTransform:'capitalize'}}>Year</span> : {movieobj.year}</li>
