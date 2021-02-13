@@ -1,28 +1,32 @@
 import React from 'react';
-import MovieInfo from './container/MovieInfo/MovieInfo';
-import MovieDetail from './container/MovieDetail/MovieDetail';
 // import UserInfo from './container/UserInfo/UserInfo';
 import Layout from './components/Layout/Layout';
-import MovieEdit from './container/MovieEdit/MovieEdit';
+import Spinner from './components/UI/Spinner/Spinner';
 import {
   Switch,
   Route,
   Redirect
 } from "react-router-dom";
 
+// Containers
+const MovieInfo = React.lazy(() => import('./container/MovieInfo/MovieInfo'));
+const MovieDetail = React.lazy(() => import('./container/MovieDetail/MovieDetail'));
+const MovieEdit = React.lazy(() => import('./container/MovieEdit/MovieEdit'));
+
 function App(props) {
   return (
     <div >
       <Layout>
-        <Switch>
-        <Route exact path="/">
-          <Redirect to="/my-app/moviesinfo" />
-        </Route>
-        <Route path="/my-app/moviesinfo" exact component={MovieInfo} />
-        <Route path="/my-app/moviesinfo/:movieid/edit" component={MovieEdit} />
-        <Route path="/my-app/moviesinfo/:movieid" exact component={MovieDetail} />
-        </Switch>
-        
+        <React.Suspense fallback={<Spinner/>}>
+          <Switch>
+          <Route exact path="/">
+            <Redirect to="/my-app/moviesinfo" />
+          </Route>
+          <Route path="/my-app/moviesinfo" exact component={MovieInfo} />
+          <Route path="/my-app/moviesinfo/:movieid/edit" component={MovieEdit} />
+          <Route path="/my-app/moviesinfo/:movieid" exact component={MovieDetail} />
+          </Switch>
+        </React.Suspense>  
       </Layout>
      
     </div>
