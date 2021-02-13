@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import MovieView from '../../components/MovieView/MovieView';
+import Spinner from "../../components/UI/Spinner/Spinner";
 
 class MovieDetail extends Component{
   
@@ -31,30 +33,23 @@ class MovieDetail extends Component{
   }
 
   render(){
-    console.log(this.state.apiResponse);
-    console.log(this.props.match.params.movieid);
-    let movieSummary = <h1>Loading</h1>
-    // if(this.state.loading){
-    //     var movieobj = this.state.apiResponse[0];
-    //     movieSummary = Object.keys(movieobj).map((keyIG,idx)=>(
-    //     <li key={idx}><span style={{textTransform:'capitalize'}}>{keyIG}</span> : {movieobj[keyIG]}</li>
-    //     )
-    //     )
-    // }
+    let movieSummary = <Spinner/>
     if(this.state.loading){
         var movieobj = this.state.apiResponse;
-        movieSummary = <ul>
-        <li ><span style={{textTransform:'capitalize'}}>Name</span> : {movieobj.title}</li>
-        <li ><span style={{textTransform:'capitalize'}}>Year</span> : {movieobj.year}</li>
-        <li ><span style={{textTransform:'capitalize'}}>Actors</span> : {movieobj.actors.map(actor => <h1>{actor}</h1>)}</li>
-        </ul>
+        movieSummary = <MovieView 
+                        imgsrc = {movieobj.posterurl}
+                        title = {movieobj.title}
+                        releasedate = {movieobj.releaseDate}
+                        storyline = {movieobj.storyline}
+                        cast = {movieobj.actors}
+                        handleEdit = {()=>this.handleEdit}
+                        />
     }
     
     return (
-      <div className="App">
+      <>
         {movieSummary}
-        <button onClick={this.handleEdit}>EDIT</button>
-      </div>
+      </>
     );
   }
 }
