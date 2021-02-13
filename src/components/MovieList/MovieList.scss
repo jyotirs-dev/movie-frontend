@@ -1,10 +1,10 @@
-.movielist{
-    text-align: center; 
-    // display:; 
-    // flex-wrap:wrap;
+.movielist {
+	text-align: center;
+	// flex-wrap: wrap;
 }
-
-.card-columns .card {
-    display: inline-block;
-    width: 80%;
+.card-columns {
+	.card {
+		display: inline-block;
+		width: 80%;
+	}
 }

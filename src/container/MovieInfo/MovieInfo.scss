@@ -1,8 +1,10 @@
 $text-color-jumbo: #7870ec;
 
-.movieinfo .color-jumbo{
-    color: $text-color-jumbo !important;
-    position: relative
+.movieinfo {
+	.color-jumbo {
+		color: $text-color-jumbo !important;
+		position: relative;
+	}
 }
 
 .filter-bar{

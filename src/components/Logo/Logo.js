@@ -1,15 +1,15 @@
 import React from 'react';
 import movieLogo from '../../assets/transparent.png';
 import {Link} from 'react-router-dom';
-import classes from './Logo.module.css';
+import './Logo.scss';
 
 const logo = (props)=>(
-    <div className={classes.LogoParent}>
-        <div className={classes.Logo} >
+    <div className="LogoParent">
+        <div className="Logo" >
             <Link to="/"><img src={movieLogo} alt="MyMovieList"/></Link>
         </div>
 
-        <div className={classes.LogoChild}>
+        <div className="LogoChild">
             <Link to="/my-app/moviesinfo">Movie Zone</Link>
         </div>
     </div>
