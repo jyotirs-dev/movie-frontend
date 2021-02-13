@@ -1,24 +1,24 @@
 import React, {Component} from 'react';
-import Button from 'react-bootstrap/Button';
+import GenreListChild from './GenreListChild/GenreListChild';
 import './GenreList.scss';
 
 class GenreList extends Component{
-  
-  // constructor(props) {
-  //   super(props);
-  // }
   handleChange(val){
+    console.log(val);
       this.props.onSelectGenre(val);
   }
   render(){
-    let genreList = this.props.genreList.map((genre,idx)=> <li key={idx} onClick={()=>this.handleChange(genre)}>{genre}</li>)
     return (
+      <div className="col-2 bd-side-bar filter-bar">
       <div className="genrelist">
-        <h4>Filter By</h4>
+        <span className="filterstyle">Filter By</span>
         <ul>
-        {genreList}
+          {this.props.genreList.map((genre,idx)=>{
+            return <GenreListChild key={idx} genre={genre} handleChange={()=>this.handleChange(genre)}/>
+          })}
         </ul>
-        <h5 onClick={()=>this.handleChange("allmovies")}>Clear Filters</h5>
+        <span className="clearstyle" onClick={()=>this.handleChange("allmovies")}>Clear Filters</span>
+      </div>
       </div>
     );
   }

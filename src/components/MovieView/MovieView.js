@@ -14,11 +14,11 @@ const movieView = (props)=>(
                     <h5 className="card-title">{props.title}</h5>
                     <h6 className="card-subtitle mb-2">Release Date :<span className="text-muted"> {props.releasedate}</span></h6>
                     <p className="card-text">{props.storyline}</p>
-                    <div class="card-header">
+                    <div className="card-header">
                         Cast:
                     </div>
                     <ul className="list-group list-group-flush">
-                        {props.cast.map(cast=> <li className="list-group-item">{cast}</li>)}
+                        {props.cast.map((cast,idx)=> <li key={idx} className="list-group-item">{cast}</li>)}
                     </ul>
                     <Button className="btn btn-info float-right" onClick={()=>props.handleEdit()}>Edit Details</Button>
                 </div>

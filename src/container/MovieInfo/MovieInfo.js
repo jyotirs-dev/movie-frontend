@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import MovieList from '../../components/MovieList/MovieList';
 import GenreList from '../../components/GenreList/GenreList';
+import MovieHeader from '../../components/MovieHeader/MovieHeader';
 import './MovieInfo.scss'
 
 class MovieInfo extends Component{
@@ -69,16 +70,9 @@ class MovieInfo extends Component{
      
       <div className="movieinfo container-fluid">
         <div className="row">
-        <div className="col-2 bd-side-bar filter-bar">
           <GenreList genreList={this.state.genreList} onSelectGenre={this.onSelectGenre}/>
-        </div>
         <div className="col-10 ml-auto">
-        <header className="jumbotron p-4 .bg-light color-jumbo">
-          <div className="container">
-            <h1>Welcome to MovieZone</h1>
-            <p className="text-dark">Check out your favorite movies here!</p>
-          </div>
-        </header>
+          <MovieHeader/>
           <MovieList movieList={this.state.movieList} history={this.props.history}/>
         </div>
         </div>
