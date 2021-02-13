@@ -10,7 +10,7 @@ const logo = (props)=>(
         </div>
 
         <div className="LogoChild">
-            <Link to="/my-app/moviesinfo">Movie Zone</Link>
+            <Link to="/my-app">Movie Zone</Link>
         </div>
     </div>
 );

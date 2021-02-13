@@ -20,11 +20,11 @@ function App(props) {
         <React.Suspense fallback={<Spinner/>}>
           <Switch>
           <Route exact path="/">
-            <Redirect to="/my-app/moviesinfo" />
+            <Redirect to="/my-app" />
           </Route>
-          <Route path="/my-app/moviesinfo" exact component={MovieInfo} />
-          <Route path="/my-app/moviesinfo/:movieid/edit" component={MovieEdit} />
-          <Route path="/my-app/moviesinfo/:movieid" exact component={MovieDetail} />
+          <Route path="/my-app" exact component={MovieInfo} />
+          <Route path="/my-app/:movieid/edit" component={MovieEdit} />
+          <Route path="/my-app/:movieid" exact component={MovieDetail} />
           </Switch>
         </React.Suspense>  
       </Layout>

@@ -23,7 +23,7 @@ class MovieList extends Component{
 //     this.callAPI();
 //   }
   handleSelect = (id)=>{
-  this.props.history.push("moviesinfo/"+id);
+  this.props.history.push(this.props.history.location.pathname+"/"+id);
   }
 
   render(){

@@ -72,7 +72,7 @@ class MovieEdit extends Component {
           }
 
           console.log(response)
-          this.props.history.push("/my-app/moviesinfo/"+this.props.match.params.movieid)
+          this.props.history.push(this.props.history.location.pathname+"/"+this.props.match.params.movieid)
       })
       .catch(error => {
           // setErrorMessage(error);
