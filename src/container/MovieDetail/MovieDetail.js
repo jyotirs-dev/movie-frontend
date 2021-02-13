@@ -42,7 +42,7 @@ class MovieDetail extends Component{
                         releasedate = {movieobj.releaseDate}
                         storyline = {movieobj.storyline}
                         cast = {movieobj.actors}
-                        handleEdit = {()=>this.handleEdit}
+                        handleEdit = {this.handleEdit}
                         />
     }
     

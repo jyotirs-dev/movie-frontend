@@ -20,7 +20,7 @@ const movieView = (props)=>(
                     <ul className="list-group list-group-flush">
                         {props.cast.map(cast=> <li className="list-group-item">{cast}</li>)}
                     </ul>
-                    <Button className="btn btn-info float-right" onClick={props.handleEdit()}>Edit Details</Button>
+                    <Button className="btn btn-info float-right" onClick={()=>props.handleEdit()}>Edit Details</Button>
                 </div>
             </div>   
             </div>

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import MovieEditForm from '../../components/MovieEditForm/MovieEditForm';
+import Spinner from "../../components/UI/Spinner/Spinner";
 
 class MovieEdit extends Component {
   constructor(props) {
@@ -25,10 +27,8 @@ class MovieEdit extends Component {
     let newactors = newState[evt.target.name].map((actor,_idx)=>{
       if (_idx !== idx) return actor;
     // this is gonna create a new object, that has the fields from
-    // `s`, and `name` set to `newName`
     return evt.target.value;
     })
-    console.log(newactors);
     this.setState(prevState =>{
       return{
            ...prevState,
@@ -50,9 +50,6 @@ class MovieEdit extends Component {
       }
    })
    
-  }
-  componentDidUpdate(){
-    
   }
 
   handleSubmit = (event)=>{
@@ -88,26 +85,24 @@ class MovieEdit extends Component {
   }
 
   render() {
-    console.log(this.state.apiResponse)
+    let movieEdit = <Spinner/>
+    if(this.state.loading){
+        var movieForm = this.state.apiResponse;
+        movieEdit = <MovieEditForm 
+                        imgsrc = {movieForm.posterurl}
+                        title = {movieForm.title}
+                        releaseDate = {movieForm.releaseDate}
+                        storyline = {movieForm.storyline}
+                        cast = {movieForm.actors}
+                        handleChange = {this.handleChange}
+                        handleArr = {this.handleArr}
+                        handleSubmit={this.handleSubmit}
+                        />
+    }
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input type="text" name="title" defaultValue={this.state.apiResponse.title} onChange={this.handleChange} />
-        </label>
-        <label>
-          Year:
-          <input type="text" name="year" defaultValue={this.state.apiResponse.year} onChange={this.handleChange} />
-        </label>
-        <label>
-          Release Date:
-          {this.state.loading?this.state.apiResponse.actors.map((actor,idx)=>
-            <input type="text" name="actors" defaultValue={this.state.apiResponse.actors[idx]} onChange={(evt)=>this.handleArr(evt,idx)} />
-            ):null}
-          
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+      <>
+      {movieEdit}
+      </>
     );
   }
 }
