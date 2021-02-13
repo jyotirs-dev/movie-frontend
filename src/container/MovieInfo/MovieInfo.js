@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import MovieList from '../../components/MovieList/MovieList';
 import GenreList from '../../components/GenreList/GenreList';
+import './MovieInfo.scss'
 
 class MovieInfo extends Component{
   
@@ -66,12 +67,20 @@ class MovieInfo extends Component{
     // let movieList = this.state.apiResponse.map(movie=> <ul>{movie.title}</ul>)
     return (
      
-      <div>
-        <div style={{width:"20%",float:'left'}}>
+      <div className="movieinfo">
+        <header className="jumbotron p-4 .bg-light color-jumbo">
+          <div className="container">
+            <h1>Welcome to MovieZone</h1>
+            <p className="text-dark">Check out your favorite movies here!</p>
+          </div>
+        </header>
+        <div className="row">
+        <div className="col-3">
           <GenreList genreList={this.state.genreList} onSelectGenre={this.onSelectGenre}/>
         </div>
-        <div style={{width:"80%", float:'right'}}>
+        <div className="col-9">
           <MovieList movieList={this.state.movieList} history={this.props.history}/>
+        </div>
         </div>
       </div>
     
