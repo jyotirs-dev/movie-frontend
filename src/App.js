@@ -9,7 +9,6 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-import './App.css';
 
 function App(props) {
   return (
