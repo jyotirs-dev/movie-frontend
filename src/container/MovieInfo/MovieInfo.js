@@ -67,18 +67,18 @@ class MovieInfo extends Component{
     // let movieList = this.state.apiResponse.map(movie=> <ul>{movie.title}</ul>)
     return (
      
-      <div className="movieinfo">
+      <div className="movieinfo container-fluid">
+        <div className="row">
+        <div className="col-2 bd-side-bar filter-bar">
+          <GenreList genreList={this.state.genreList} onSelectGenre={this.onSelectGenre}/>
+        </div>
+        <div className="col-10 ml-auto">
         <header className="jumbotron p-4 .bg-light color-jumbo">
           <div className="container">
             <h1>Welcome to MovieZone</h1>
             <p className="text-dark">Check out your favorite movies here!</p>
           </div>
         </header>
-        <div className="row">
-        <div className="col-3">
-          <GenreList genreList={this.state.genreList} onSelectGenre={this.onSelectGenre}/>
-        </div>
-        <div className="col-9">
           <MovieList movieList={this.state.movieList} history={this.props.history}/>
         </div>
         </div>

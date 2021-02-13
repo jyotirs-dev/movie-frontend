@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import Button from 'react-bootstrap/Button';
+import './GenreList.scss';
 
 class GenreList extends Component{
   
@@ -11,11 +13,12 @@ class GenreList extends Component{
   render(){
     let genreList = this.props.genreList.map((genre,idx)=> <li key={idx} onClick={()=>this.handleChange(genre)}>{genre}</li>)
     return (
-      <div className="App">
+      <div className="genrelist">
+        <h4>Filter By</h4>
         <ul>
         {genreList}
-        <li onClick={()=>this.handleChange("allmovies")}>Reset</li>
         </ul>
+        <h5 onClick={()=>this.handleChange("allmovies")}>Clear Filters</h5>
       </div>
     );
   }
