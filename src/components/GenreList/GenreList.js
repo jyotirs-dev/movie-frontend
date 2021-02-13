@@ -4,7 +4,6 @@ import './GenreList.scss';
 
 class GenreList extends Component{
   handleChange(val){
-    console.log(val);
       this.props.onSelectGenre(val);
   }
   render(){
