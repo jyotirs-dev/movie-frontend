@@ -1,4 +1,5 @@
 import React from 'react';
+import { StarFill } from 'react-bootstrap-icons';
 
 const movieListChild = (props)=>(
     <div className="card col-md-8 col-xl-6">
@@ -10,7 +11,7 @@ const movieListChild = (props)=>(
         />
         <div className="card-body">
             <h6 className="card-subtitle mb-2 text-muted">
-                {props.imdbRating}
+            <span><StarFill color="Gold"/></span> {props.imdbRating}
             </h6>
             <h5 className="card-title" onClick={()=>props.handleSelect(props.id)}>
                 {props.title}
