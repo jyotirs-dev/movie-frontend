@@ -22,11 +22,9 @@ class GenreList extends Component{
     return (
       <div className="col-2 bd-side-bar filter-bar">
       <div className="genrelist">
-        <span className="filterstyle">Filter By</span>
-        <ul>
+        <div className="filterstyle">Genres</div>
           {genreList}
-        </ul>
-        <span className="clearstyle" onClick={()=>this.handleChange("allmovies")}>Clear Filters</span>
+        <div className="clearstyle" onClick={()=>this.handleChange("allmovies")}>Clear Filters</div>
       </div>
       </div>
     );
