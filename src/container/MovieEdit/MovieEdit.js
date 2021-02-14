@@ -87,13 +87,14 @@ class MovieEdit extends Component {
   render() {
     let movieEdit = <Spinner/>
     if(this.state.loading){
-        var movieForm = this.state.apiResponse;
+        var movieObject = this.state.apiResponse;
         movieEdit = <MovieEditForm 
-                        imgsrc = {movieForm.posterurl}
-                        title = {movieForm.title}
-                        releaseDate = {movieForm.releaseDate}
-                        storyline = {movieForm.storyline}
-                        cast = {movieForm.actors}
+                        imgsrc = {movieObject.posterurl}
+                        title = {movieObject.title}
+                        imdbRating={movieObject.imdbRating}
+                        releaseDate = {movieObject.releaseDate}
+                        storyline = {movieObject.storyline}
+                        cast = {movieObject.actors}
                         handleChange = {this.handleChange}
                         handleArr = {this.handleArr}
                         handleSubmit={this.handleSubmit}

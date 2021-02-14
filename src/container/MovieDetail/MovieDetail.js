@@ -42,6 +42,7 @@ class MovieDetail extends Component{
                         releasedate = {movieobj.releaseDate}
                         storyline = {movieobj.storyline}
                         cast = {movieobj.actors}
+                        imdbRating={movieobj.imdbRating}
                         handleEdit = {this.handleEdit}
                         />
     }

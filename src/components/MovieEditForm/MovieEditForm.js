@@ -18,6 +18,13 @@ const movieEditForm = (props)=>(
                     </div>
 
                     <div className="form-group row">
+                        <label className="col-sm-2 col-form-label">IMDB Rating</label>
+                        <div className="col-sm-10">
+                        <input defaultValue={props.imdbRating} name="imdbRating" type="text" className="form-control" placeholder="Rating" onChange={(evt)=>props.handleChange(evt)}/>
+                        </div>
+                    </div>
+
+                    <div className="form-group row">
                         <label className="col-sm-2 col-form-label">Release Date</label>
                         <div className="col-sm-10">
                         <input defaultValue={props.releaseDate} name="releaseDate" type="text" className="form-control" placeholder="Release Date" onChange={(evt)=>props.handleChange(evt)}/>

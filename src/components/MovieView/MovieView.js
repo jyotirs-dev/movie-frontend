@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
+import { StarFill } from 'react-bootstrap-icons';
 import './MovieView.scss';
 
 const movieView = (props)=>(
@@ -12,6 +13,9 @@ const movieView = (props)=>(
             <div className="card">
                 <div className="card-body">
                     <h5 className="card-title">{props.title}</h5>
+                    <h6 className="card-subtitle mb-2">IMDB Rating :
+                        <span className="text-muted"> {props.imdbRating} <StarFill color="Gold"/></span> 
+                    </h6>
                     <h6 className="card-subtitle mb-2">Release Date :<span className="text-muted"> {props.releasedate}</span></h6>
                     <p className="card-text">{props.storyline}</p>
                     <div className="card-header">
