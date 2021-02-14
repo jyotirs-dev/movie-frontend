@@ -11,7 +11,12 @@
 
 .card-columns {
 	img {
+		opacity: .85;
 		cursor: pointer;
+		transition: opacity 0.35s;
+		&:hover {
+			opacity: 1;
+		}
 	}
 	.card-title {
 		cursor: pointer;
