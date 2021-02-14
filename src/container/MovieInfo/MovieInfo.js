@@ -11,7 +11,9 @@ class MovieInfo extends Component{
     this.state = { 
       movieList: [], 
       activeGenre: "allmovies",
-      genreList:[]
+      genreList:[],
+      movieListLoaded:false,
+      genreListLoaded:false
     };
   }
   onSelectGenre = (val)=>{
@@ -36,7 +38,8 @@ class MovieInfo extends Component{
       .then(
       (result) => {
         this.setState({
-          movieList: result
+          movieList: result,
+          movieListLoaded:true
         })
       });
   }
@@ -47,7 +50,8 @@ class MovieInfo extends Component{
       .then(
       (result) => {
         this.setState({
-          genreList: result
+          genreList: result,
+          genreListLoaded:true
         })
       });
   }
@@ -65,15 +69,22 @@ class MovieInfo extends Component{
   }
 
   render(){
-    // let movieList = this.state.apiResponse.map(movie=> <ul>{movie.title}</ul>)
     return (
      
       <div className="movieinfo container-fluid">
         <div className="row">
-          <GenreList genreList={this.state.genreList} onSelectGenre={this.onSelectGenre}/>
+          <GenreList 
+          genreList={this.state.genreList} 
+          onSelectGenre={this.onSelectGenre} 
+          genreSelected={this.state.activeGenre}
+          genreListLoaded={this.state.genreListLoaded}
+          />
         <div className="col-10 ml-auto">
           <MovieHeader/>
-          <MovieList movieList={this.state.movieList} history={this.props.history}/>
+          <MovieList 
+          movieList={this.state.movieList}
+          movieListLoaded={this.state.movieListLoaded}
+          history={this.props.history}/>
         </div>
         </div>
       </div>

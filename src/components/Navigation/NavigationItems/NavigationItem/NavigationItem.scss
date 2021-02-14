@@ -4,10 +4,14 @@
 	display: block;
 	width: 100%;
 	a {
-		color: white;
+		color: rgb(255, 255, 255);
 		text-decoration: none;
 		width: 100%;
 		box-sizing: border-box;
 		display: block;
+		&:hover {
+			color: #000000;
+		}
 	}
 }
+
