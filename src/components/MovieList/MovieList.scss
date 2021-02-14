@@ -1,0 +1,31 @@
+.movielist {
+	text-align: center;
+	// flex-wrap: wrap;
+}
+.card-columns {
+	.card {
+		display: inline-block;
+		width: 80%;
+	}
+}
+
+.card-columns {
+	img {
+		opacity: .85;
+		cursor: pointer;
+		transition: opacity 0.2s;
+		&:hover {
+			opacity: 1;
+		}
+	}
+	.card-title {
+		cursor: pointer;
+	}
+}
+
+span {
+	svg {
+		margin-bottom: 3.5%;
+	}
+}
+

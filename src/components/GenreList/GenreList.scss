@@ -1,0 +1,64 @@
+
+.genrelist {
+	.filterstyle {
+		width: 14.5%;
+		font-size: 20px;
+		font-family: inherit;
+		color: #7870ec;
+		display: block;
+		text-align: center;
+		justify-content: center;
+		margin-bottom: 1rem;
+		background-color: #e9ecef;
+		border-radius: 0.3rem;
+		border-bottom: .5px solid black;
+		position: fixed;
+	}
+	.clearstyle {
+		font-family: inherit;
+		background-color: #e9ecef;
+		border-radius: 0.3rem;
+		padding: 3px;
+		text-decoration: none;
+		font-size: 15px;
+		color: #00000073;
+		display: block;
+		text-align: center;
+		justify-content: center;
+		border-top: .5px solid black;
+		margin-top: 2px;
+		cursor: pointer;
+		&:hover {
+			color: #000000;
+		}	
+	}
+	.genrelists {
+		padding: 6px 8px 6px 16px;
+		text-decoration: none;
+		font-size: 18px;
+		color: #00000073;
+		display: block;
+		cursor: pointer;
+		&:hover {
+			color: #000000;
+		}
+	}
+	.active{
+		color: #000000 !important;
+	}
+}
+
+
+
+.filter-bar{
+    position: fixed;
+    top: 4rem;
+    z-index: 1000;
+    height: calc(100vh - 4rem);
+    border-right: 1px solid rgba(0,0,0,.1);
+    -webkit-box-ordinal-group: 1;
+    -ms-flex-order: 0;
+    order: 0;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    overflow-y: auto;
+}
