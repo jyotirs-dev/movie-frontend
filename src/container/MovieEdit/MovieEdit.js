@@ -26,7 +26,7 @@ class MovieEdit extends Component {
     let newState = {...this.state.apiResponse}
     let newactors = newState[evt.target.name].map((actor,_idx)=>{
       if (_idx !== idx) return actor;
-    // this is gonna create a new object, that has the fields from
+    // this is gonna create a new object, that has the fields from input
     return evt.target.value;
     })
     this.setState(prevState =>{
